@@ -1,0 +1,34 @@
+{
+  "orders":[
+    {
+    "order_num": "1",
+    "company": "Infinitea",
+    "item": "Tea extract",
+    "quantity": "50"
+  },
+    {
+      "order_num": "2",
+      "company": "Teassss",
+      "item": "Orange Syrup",
+      "quantity": "10"
+    },
+    {
+      "order_num": "3",
+      "company": "Platea",
+      "item": "Passion Fruit Syrup",
+      "quantity": "15"
+    },
+    {
+      "order_num": "4",
+      "company": "Teavana",
+      "item": "Honeydew Syrup",
+      "quantity": "3"
+    },
+    {
+      "order_num": "5",
+      "company": "TeaSpoon",
+      "item": "White Peach Popping",
+      "quantity": "4"
+    }
+  ]
+}
