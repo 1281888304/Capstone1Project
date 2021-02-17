@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class FirstPage extends AppCompatActivity {
     private Button goFirst;
+    private Button mapButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,16 @@ public class FirstPage extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(FirstPage.this,LoginPage.class));
+            }
+        });
+
+        mapButton=(Button) findViewById(R.id.mapButton);
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(FirstPage.this,MapsActivity.class));
             }
         });
     }
