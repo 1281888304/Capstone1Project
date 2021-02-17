@@ -36,7 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
 
-        setContentView(R.layout.activity_main);
+
         setContentView(R.layout.activity_profile);
 
         logout=(Button) findViewById(R.id.signOut);
@@ -45,7 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(ProfileActivity.this,LoginPage.class));
+                startActivity(new Intent(ProfileActivity.this,FirstPage.class));
             }
         });
 

@@ -41,7 +41,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
 
-        setContentView(R.layout.activity_main);
+
         setContentView(R.layout.activity_register_user);
 
         mAuth = FirebaseAuth.getInstance();

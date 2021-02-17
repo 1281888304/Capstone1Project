@@ -33,7 +33,7 @@ public class ForgotPassword extends AppCompatActivity{
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
 
-        setContentView(R.layout.activity_main);
+
         setContentView(R.layout.activity_forgot_password);
 
         emailEditText =(EditText) findViewById(R.id.email);

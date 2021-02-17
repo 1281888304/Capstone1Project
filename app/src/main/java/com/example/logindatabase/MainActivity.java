@@ -46,10 +46,10 @@ public class MainActivity extends AppCompatActivity  {
         super.onStart();
 
         FirebaseUser mFirebaseUser=mFirebaseAuth.getCurrentUser();
-        if(mFirebaseUser!=null){ //这里是如果有人已经login 了，就去profile
+        if(mFirebaseUser!=null){ //if someone login, then go to profile
             startActivity(new Intent(MainActivity.this,ProfileActivity.class));
-        }else{ //这里要是没有人login， 就送到login page
-            startActivity(new Intent(MainActivity.this,LoginPage.class));
+        }else{ //no user login then go to the first Page
+            startActivity(new Intent(MainActivity.this,FirstPage.class));
             finish();
         }
 
