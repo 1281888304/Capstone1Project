@@ -40,7 +40,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val washington = LatLng(32.6099, -85.4808)
+        val washington = LatLng(47.3073, -122.2285)
         val california = LatLng(36.778,-119.4179)
         val texas = LatLng(31.9686,-99.9018)
         val Georgia = LatLng(32.1656,-82.9001)
