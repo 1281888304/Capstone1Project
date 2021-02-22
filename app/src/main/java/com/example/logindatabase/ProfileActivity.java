@@ -53,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
         purchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this,Shop.class));
+                startActivity(new Intent(ProfileActivity.this,ListViewActivity.class));
             }
         });
 
