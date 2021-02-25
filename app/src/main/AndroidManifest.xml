@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginDatabase">
-        <activity android:name=".ActivityEquip"></activity>
+        <activity android:name=".Review"></activity>
+        <activity android:name=".ActivityEquip" />
         <activity android:name=".ActivityCup" />
         <activity android:name=".ActivitySyrup" />
         <activity android:name=".ActivityLeaf" />

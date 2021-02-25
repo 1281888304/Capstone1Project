@@ -28,6 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private Button logout;
     private Button purchase;
+    private Button review;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_profile);
 
+        //link to login page and logout the user account on firebase
+
         logout=(Button) findViewById(R.id.signOut);
 
         logout.setOnClickListener(new View.OnClickListener() {
@@ -49,11 +52,21 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        //link to purchase pages
         purchase=(Button) findViewById(R.id.purchase);
         purchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ProfileActivity.this,Shop.class));
+            }
+        });
+
+        //link to review pages
+        review=(Button) findViewById(R.id.Review);
+        review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this,Review.class));
             }
         });
 
