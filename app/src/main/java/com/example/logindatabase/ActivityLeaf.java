@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,20 +15,22 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
 
 public class ActivityLeaf extends AppCompatActivity {
 
-    private ImageView logoLeaf;
+    //private ImageView logoLeaf;
 
     private ListView listView;
     private ListAdapter listAdapter;
     ArrayList<Product> products = new ArrayList<>();
-    Button btnPlaceOrder;
+    Button btnPlaceOrder,btnPurchaseMore;
     ArrayList<Product> productOrders = new ArrayList<>();
     ArrayList<String> lOrderItems = new ArrayList<>();
+
 
 
     @Override
@@ -39,8 +42,11 @@ public class ActivityLeaf extends AppCompatActivity {
 
         setContentView(R.layout.activity_leaf);
 
-        logoLeaf = (ImageView)findViewById(R.id.logoleaf);
-        logoLeaf.setOnClickListener(new View.OnClickListener(){
+        //logoLeaf = (ImageView)findViewById(R.id.logoleaf);
+        btnPurchaseMore = findViewById(R.id.btnPurchaseMore);
+
+
+        btnPurchaseMore.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 backToPage();
@@ -59,19 +65,33 @@ public class ActivityLeaf extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 placeOrder();
 
             }
         });
 
-
     }
+
+//    @Override
+//
+//    protected void onSaveInstanceState(@NotNull Bundle outState){
+//        super.onSaveInstanceState(outState);
+//        outState.putString("testInput",leafET.getText().toString());
+//    }
+//    @Override
+//
+//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState){
+//        super.onRestoreInstanceState(savedInstanceState);
+//        savedInstanceState.getString("testInput");
+//
+//    }
 
 
     private void placeOrder()
     {
         productOrders.clear();
-        lOrderItems.clear();
+       // lOrderItems1.clear();
 
         for(int i=0;i<listAdapter.listProducts.size();i++)
         {
@@ -90,12 +110,11 @@ public class ActivityLeaf extends AppCompatActivity {
         }
         //We can pass this JSONArray into another activity
         JSONArray jsonArray = new JSONArray(lOrderItems);
-        jsonArray.toString();
+       // jsonArray.toString();
 
         openSummary(jsonArray.toString());
-
-
     }
+
 
     public void openSummary(String orderItems)
     {
@@ -111,20 +130,14 @@ public class ActivityLeaf extends AppCompatActivity {
 
     public void getProduct() {
         products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
+        products.add(new Product("Green Tea",10.0d,R.drawable.greentea));
+        products.add(new Product("Oolong Tea",10.0d,R.drawable.oolongtea));
+        products.add(new Product("Rose Tea",10.0d,R.drawable.rosetea));
+        products.add(new Product("Earl Grey",10.0d,R.drawable.earlgrey));
         products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
+        products.add(new Product("Green Tea",10.0d,R.drawable.greentea));
+        products.add(new Product("Oolong Tea",10.0d,R.drawable.oolongtea));
+        products.add(new Product("Rose Tea",10.0d,R.drawable.rosetea));
         products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
 
     }
@@ -132,7 +145,7 @@ public class ActivityLeaf extends AppCompatActivity {
 
     public void backToPage(){
 
-        Intent clickBackIntent = new Intent(ActivityLeaf.this, MainActivity.class);
+        Intent clickBackIntent = new Intent(ActivityLeaf.this, Shop.class);
         startActivity(clickBackIntent);
 
     }

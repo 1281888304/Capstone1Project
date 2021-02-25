@@ -18,12 +18,12 @@ import java.util.ArrayList;
 
 public class ActivityCup extends AppCompatActivity {
 
-    private ImageView logoLeaf;
+   // private ImageView logoLeaf;
 
     private ListView listView;
     private ListAdapter listAdapter;
     ArrayList<Product> products = new ArrayList<>();
-    Button btnPlaceOrder;
+    Button btnPlaceOrder,btnPurchaseMore;
     ArrayList<Product> productOrders = new ArrayList<>();
     ArrayList<String> lOrderItems = new ArrayList<>();
 
@@ -35,8 +35,9 @@ public class ActivityCup extends AppCompatActivity {
         getSupportActionBar().hide(); //This line hides the action bar
         setContentView(R.layout.activity_leaf);
 
-        logoLeaf = (ImageView)findViewById(R.id.logoleaf);
-        logoLeaf.setOnClickListener(new View.OnClickListener(){
+       // logoLeaf = (ImageView)findViewById(R.id.logoleaf);
+        btnPurchaseMore = findViewById(R.id.btnPurchaseMore);
+        btnPurchaseMore.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 backToPage();
@@ -105,29 +106,24 @@ public class ActivityCup extends AppCompatActivity {
     }
 
     public void getProduct() {
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
+        products.add(new Product("Cup",10.0d,R.drawable.cup1));
+        products.add(new Product("Cup",10.0d,R.drawable.cup1));
+        products.add(new Product("Cup",10.0d,R.drawable.cup1));
+        products.add(new Product("Cup",10.0d,R.drawable.cup1));
+        products.add(new Product("Cup",10.0d,R.drawable.cup1));
+        products.add(new Product("Cup",10.0d,R.drawable.cup1));
+        products.add(new Product("Cup",10.0d,R.drawable.cup1));
+        products.add(new Product("Cup",10.0d,R.drawable.cup1));
+        products.add(new Product("Cup",10.0d,R.drawable.cup1));
+        products.add(new Product("Cup",10.0d,R.drawable.cup1));
+
 
     }
 
 
     public void backToPage(){
 
-        Intent clickBackIntent = new Intent(ActivityCup.this, MainActivity.class);
+        Intent clickBackIntent = new Intent(ActivityCup.this, Shop.class);
         startActivity(clickBackIntent);
 
     }

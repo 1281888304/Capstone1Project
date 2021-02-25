@@ -1,8 +1,11 @@
 package com.example.logindatabase;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,13 +22,18 @@ public class Summary extends AppCompatActivity {
     ListView lvSummary;
     TextView tvTotal;
     Double Total=0d;
+
+
     ArrayList<Product> productOrders = new ArrayList<>();
+
+    Button backButton;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide(); //This line hides the action bar
@@ -33,7 +41,17 @@ public class Summary extends AppCompatActivity {
         lvSummary = findViewById(R.id.lvSummary);
         tvTotal = findViewById(R.id.tvTotal);
 
+        backButton = (Button)findViewById(R.id.summary_backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent clickBackIntent = new Intent(Summary.this, Shop.class);
+                startActivity(clickBackIntent);
+            }
+        });
+
         getOrderItemData();
+
 
     }
 
@@ -41,10 +59,14 @@ public class Summary extends AppCompatActivity {
     private void getOrderItemData() {
         //Bundle is basically a mapping from String values to various Parcelable types
         Bundle extras = getIntent().getExtras();
+
+
         if(extras != null )
         {
             String orderItems = extras.getString("orderItems",null);
-            if(orderItems!=null && orderItems.length()>0)
+
+
+            if(orderItems!=null && orderItems.length()>0 )
             {
                 try{
                     JSONArray jsonOrderItems = new JSONArray(orderItems);
@@ -60,7 +82,9 @@ public class Summary extends AppCompatActivity {
                         /* Calculate Total */
                         Total = Total + (product.CartQuantity * product.ProductPrice);
                         productOrders.add(product);
+
                     }
+
 
                     if(productOrders.size() > 0)
                     {
@@ -81,6 +105,8 @@ public class Summary extends AppCompatActivity {
 
         }
     }
+
+
 
     public void showMessage(String message)
     {

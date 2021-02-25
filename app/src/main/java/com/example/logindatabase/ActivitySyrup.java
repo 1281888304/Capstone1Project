@@ -18,12 +18,12 @@ import java.util.ArrayList;
 
 public class ActivitySyrup extends AppCompatActivity {
 
-    private ImageView logoLeaf;
+    //private ImageView logoLeaf;
 
     private ListView listView;
     private ListAdapter listAdapter;
     ArrayList<Product> products = new ArrayList<>();
-    Button btnPlaceOrder;
+    Button btnPlaceOrder,btnPurchaseMore;
     ArrayList<Product> productOrders = new ArrayList<>();
     ArrayList<String> lOrderItems = new ArrayList<>();
 
@@ -35,8 +35,11 @@ public class ActivitySyrup extends AppCompatActivity {
         getSupportActionBar().hide(); //This line hides the action bar
         setContentView(R.layout.activity_leaf);
 
-        logoLeaf = (ImageView)findViewById(R.id.logoleaf);
-        logoLeaf.setOnClickListener(new View.OnClickListener(){
+        //logoLeaf = findViewById(R.id.logoleaf);
+
+        btnPurchaseMore = findViewById(R.id.btnPurchaseMore);
+
+        btnPurchaseMore.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 backToPage();
@@ -66,7 +69,7 @@ public class ActivitySyrup extends AppCompatActivity {
     private void placeOrder()
     {
         productOrders.clear();
-        lOrderItems.clear();
+       // lOrderItems2.clear();
 
         for(int i=0;i<listAdapter.listProducts.size();i++)
         {
@@ -85,7 +88,7 @@ public class ActivitySyrup extends AppCompatActivity {
         }
         //We can pass this JSONArray into another activity
         JSONArray jsonArray = new JSONArray(lOrderItems);
-        jsonArray.toString();
+       // jsonArray.toString();
 
         openSummary(jsonArray.toString());
 
@@ -105,29 +108,23 @@ public class ActivitySyrup extends AppCompatActivity {
     }
 
     public void getProduct() {
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
-        products.add(new Product("Fruit Tea",10.0d,R.drawable.fruittea));
+        products.add(new Product("Syrup",10.0d,R.drawable.syrup));
+        products.add(new Product("Kiwi Syrup",10.0d,R.drawable.kiwisyrup));
+        products.add(new Product("Strawbrry Syrup",10.0d,R.drawable.strawberrysyrup));
+        products.add(new Product("Mango Syrup",10.0d,R.drawable.watermelonsyrup));
+        products.add(new Product("Syrup",10.0d,R.drawable.syrup));
+        products.add(new Product("Honeydew Syrup",10.0d,R.drawable.kiwisyrup));
+        products.add(new Product("Strawberry Syrup",10.0d,R.drawable.strawberrysyrup));
+        products.add(new Product("Watermelon Syrup",10.0d,R.drawable.watermelonsyrup));
+        products.add(new Product("Syrup",10.0d,R.drawable.syrup));
+        products.add(new Product("Syrup",10.0d,R.drawable.syrup));
 
     }
 
 
     public void backToPage(){
 
-        Intent clickBackIntent = new Intent(ActivitySyrup.this, MainActivity.class);
+        Intent clickBackIntent = new Intent(ActivitySyrup.this, Shop.class);
         startActivity(clickBackIntent);
 
     }
