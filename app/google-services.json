@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "903830084601",
-    "project_id": "auth-a3fc5",
-    "storage_bucket": "auth-a3fc5.appspot.com"
+    "project_number": "718698175023",
+    "firebase_url": "https://ethen-35316-default-rtdb.firebaseio.com",
+    "project_id": "ethen-35316",
+    "storage_bucket": "ethen-35316.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:903830084601:android:a39c55db05720dad973b28",
+        "mobilesdk_app_id": "1:718698175023:android:6638e7330e3592fc9804da",
         "android_client_info": {
           "package_name": "com.example.logindatabase"
         }
       },
       "oauth_client": [
         {
-          "client_id": "903830084601-avooe3408udsm1t4m1t7f8to8oqtmba5.apps.googleusercontent.com",
+          "client_id": "718698175023-qqaq4ul02mkj96oq7a60ikc3i9cucq3h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBnsLrKMEaKdyOXulSIyaXMykqiy6UsCR4"
+          "current_key": "AIzaSyAn2zdJvmuO2nGIFbRoe4J4GeM1YaXdkrE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "903830084601-avooe3408udsm1t4m1t7f8to8oqtmba5.apps.googleusercontent.com",
+              "client_id": "718698175023-qqaq4ul02mkj96oq7a60ikc3i9cucq3h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
