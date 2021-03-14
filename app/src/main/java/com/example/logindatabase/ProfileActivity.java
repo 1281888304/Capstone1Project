@@ -29,6 +29,8 @@ public class ProfileActivity extends AppCompatActivity {
     private Button logout;
     private Button purchase;
     private Button review;
+    private Button controlShop;
+    private Button seeControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,24 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ProfileActivity.this,Review.class));
+            }
+        });
+
+        //link to control shop
+        //link to review pages
+        controlShop=(Button) findViewById(R.id.ControlShop);
+        controlShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this,AddProduct.class));
+            }
+        });
+        //link to control simple
+        seeControl=(Button) findViewById(R.id.seeControl);
+        seeControl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this,ShowProductString.class));
             }
         });
 

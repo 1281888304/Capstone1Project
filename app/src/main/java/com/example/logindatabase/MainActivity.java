@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity  {
     protected void onStart() {
         super.onStart();
 
-        FirebaseUser mFirebaseUser=mFirebaseAuth.getCurrentUser();
+        FirebaseUser mFirebaseUser=mFirebaseAuth.getCurrentUser();// to get user's username 
         if(mFirebaseUser!=null){ //if someone login, then go to profile
             startActivity(new Intent(MainActivity.this,ProfileActivity.class));
         }else{ //no user login then go to the first Page
