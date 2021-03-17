@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity  {
 
    private FirebaseAuth mFirebaseAuth;
 
+   private String testBranch1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
