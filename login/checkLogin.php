@@ -12,7 +12,7 @@ if(!isset($_SESSION['un'])){
     header("location: login.php");
 }
 //else{
-//    header('location: inventory.php');
+//    header('location: ordercheckout.php');
 //}
 //header redirects to the login page.
 //header must come first before any html.

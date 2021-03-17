@@ -23,10 +23,15 @@ var submitbtn = document.getElementById("addOrder")
 var updatebtn = document.getElementById("update");
 var db = firebase.database();
 var ref = db.ref("orders");
+var processedtable = document.getElementById('processedTable');
+// var imgref = db.ref("Images");
+// imgref.once("value",function (snapshot){
+// document.getElementById("imagetest").setAttribute('src',snapshot.val().URL)});
 const ordertable = document.getElementById("ordersTable")
 let tbody = document.createElement("tbody");
+let protbody = document.createElement("tbody");
 // Attach an asynchronous callback to read the data at our posts reference
-ref.once("value", function(snapshot) {
+ref.orderByChild('status').equalTo('Pending').once("value", function(snapshot) {
     console.log(snapshot.val());
     let ss = snapshot.val();
     // for (let i = 0; i < snapshot.val().length; i++) {
@@ -37,33 +42,74 @@ ref.once("value", function(snapshot) {
         let item = document.createElement("td");
         let quantity = document.createElement("td");
         let address = document.createElement("td");
+        let status = document.createElement("td");
         let editbtn = document.createElement('button');
         let delbtn = document.createElement('button');
+        let processbtn = document.createElement('button');
         editbtn.innerHTML="Edit";
         delbtn.innerHTML = "Delete";
+        processbtn.innerHTML = "Process";
         delbtn.className = 'btn btn-primary';
         editbtn.className='btn btn-primary';
+        processbtn.className = 'btn btn-primary';
         var key = ss[order].order_num;
         editbtn.value=key;
         delbtn.value = key;
+        processbtn.value = key;
         editbtn.addEventListener("click", function (){editOrder(editbtn)});
         delbtn.addEventListener("click",function(){delOrder(delbtn)});
+        processbtn.addEventListener("click",function (){processOrder(processbtn)});
         ordernum.innerHTML = ss[order].order_num;
         company.innerHTML = ss[order].company;
         item.innerHTML = ss[order].item;
         quantity.innerHTML = ss[order].quantity;
         address.innerHTML=ss[order].address;
+        status.innerHTML = ss[order].status;
         tr.append(ordernum);
         tr.append(company);
         tr.append(item);
         tr.append(quantity);
         tr.append(address);
+        tr.append(status);
         tr.append(editbtn);
         tr.append(delbtn);
+        tr.append(processbtn);
         tbody.append(tr);
     num++;
     });
     ordertable.append(tbody);
+}, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+});
+ref.orderByChild('status').equalTo('Processed').once("value", function(snapshot) {
+    console.log(snapshot.val());
+    let processedss = snapshot.val();
+    // for (let i = 0; i < snapshot.val().length; i++) {
+    Object.keys(processedss).forEach(function (order){
+        let protr = document.createElement("tr");
+        let proOrdernum = document.createElement("th");
+        let proCompany = document.createElement("td");
+        let proItem = document.createElement("td");
+        let proQuantity = document.createElement("td");
+        let proAddress = document.createElement("td");
+        let printbtn = document.createElement("button");
+        printbtn.className = "btn btn-primary";
+        printbtn.innerHTML = "Print";
+        printbtn.addEventListener("click",function(){printOrder(processedss[order].order_num)});
+        proOrdernum.innerHTML = processedss[order].order_num;
+        proCompany.innerHTML = processedss[order].company;
+        proItem.innerHTML = processedss[order].item;
+        proQuantity.innerHTML = processedss[order].quantity;
+        proAddress.innerHTML = processedss[order].address;
+        protr.append(proOrdernum);
+        protr.append(proCompany);
+        protr.append(proItem);
+        protr.append(proQuantity);
+        protr.append(proAddress);
+        protr.append(printbtn);
+        protbody.append(protr);
+    });
+    processedtable.append(protbody);
 }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
 });
@@ -110,4 +156,36 @@ function delOrder(order){
     ref.child(ordernum-1).remove();
     }
     location.reload(true);
+}
+function processOrder(order){
+    var ordernum = order.value;
+    console.log(ordernum);
+    ref.child(ordernum-1).once('value').then(function(snapshot) {
+        console.log(snapshot.val());
+        snap = snapshot.val();
+        sessionStorage.setItem("ordernum",snap.order_num);
+        sessionStorage.setItem("company",snap.company);
+        sessionStorage.setItem("item",snap.item);
+        sessionStorage.setItem("quantity",snap.quantity);
+        sessionStorage.setItem("address",snap.address);
+        ref.child(ordernum - 1).update({
+            'status': "Processed"
+        });
+
+    });
+    window.location.replace("ordercheckout.php");
+
+}
+function printOrder(num){
+    ref.child(num-1).once('value').then(function(snapshot) {
+        console.log(snapshot.val());
+        snap = snapshot.val();
+        sessionStorage.setItem("ordernum",snap.order_num);
+        sessionStorage.setItem("company",snap.company);
+        sessionStorage.setItem("item",snap.item);
+        sessionStorage.setItem("quantity",snap.quantity);
+        sessionStorage.setItem("address",snap.address);
+
+    });
+    window.location.replace("ordercheckout.php");
 }

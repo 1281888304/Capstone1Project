@@ -30,6 +30,7 @@ require('checkLogin.php');
     ?>
 </div>
 <div class="container">
+    <h2>Pending Orders</h2>
 <table class="table" id="ordersTable" style="background-color: gray; color: whitesmoke">
     <thead>
     <tr>
@@ -38,9 +39,22 @@ require('checkLogin.php');
     <th>Item</th>
     <th>Quantity</th>
     <th>Address</th>
+    <th>Status</th>
     </tr>
     </thead>
 </table><br>
+    <h2>Processed Orders</h2>
+    <table class="table" id="processedTable" style="background-color: gray; color: whitesmoke">
+        <thead>
+        <tr>
+            <th>Order #</th>
+            <th>Company</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+    </table><br>
     <h2>Add Order</h2>
 </div>
 <div class="container">
