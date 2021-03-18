@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginDatabase">
-        <activity android:name=".ShowOrders"></activity>
+        <activity android:name=".TestBranch"></activity>
+        <activity android:name=".ShowOrders" />
         <activity android:name=".ShowProductString" />
         <activity android:name=".AddProduct" />
         <activity android:name=".Review" />

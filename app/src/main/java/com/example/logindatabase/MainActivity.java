@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity  {
 
    private FirebaseAuth mFirebaseAuth;
 
+    private String test2;
 
-    
 
    private String testBranch1;
 
