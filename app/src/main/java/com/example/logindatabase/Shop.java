@@ -34,7 +34,7 @@ public class Shop extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-
+ // test branch
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
