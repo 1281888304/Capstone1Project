@@ -29,6 +29,4 @@ public class Product {
         return cartItems.toString();
     }
 
-
-
 }

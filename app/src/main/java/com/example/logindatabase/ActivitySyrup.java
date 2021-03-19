@@ -3,17 +3,16 @@ package com.example.logindatabase;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
-
 import java.util.ArrayList;
 
 public class ActivitySyrup extends AppCompatActivity {
@@ -26,9 +25,15 @@ public class ActivitySyrup extends AppCompatActivity {
     Button btnPlaceOrder,btnPurchaseMore;
     ArrayList<Product> productOrders = new ArrayList<>();
     ArrayList<String> lOrderItems = new ArrayList<>();
+    
+    private static final String TAG = "Syrup Activity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Log.d(TAG, "onCreate: ");
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -42,6 +47,8 @@ public class ActivitySyrup extends AppCompatActivity {
         btnPurchaseMore.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+
+
                 backToPage();
             }
         });
@@ -68,7 +75,7 @@ public class ActivitySyrup extends AppCompatActivity {
 
     private void placeOrder()
     {
-        productOrders.clear();
+       // productOrders.clear();
        // lOrderItems2.clear();
 
         for(int i=0;i<listAdapter.listProducts.size();i++)
@@ -97,8 +104,13 @@ public class ActivitySyrup extends AppCompatActivity {
 
     public void openSummary(String orderItems)
     {
+        SharedPreferences sharedPreferences = getSharedPreferences("prefSyrup",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("orderItems",orderItems);
+        editor.apply();
+
         Intent summaryIntent = new Intent(this,Summary.class);
-        summaryIntent.putExtra("orderItems",orderItems);
+        summaryIntent.putExtra("orderItems2",orderItems);
         startActivity(summaryIntent);
     }
 
@@ -128,4 +140,6 @@ public class ActivitySyrup extends AppCompatActivity {
         startActivity(clickBackIntent);
 
     }
+
+
 }
