@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_icon"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_account"
+            android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_shppoing_cart_icon"
+            android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_placeOrder"
+            android:icon="@drawable/ic_place_order_icon_new"
+            android:title="@string/menu_placeOrder" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_history"
+            android:title="History" />
+    </group>
+
+    <item android:title="Products">
+        <menu>
+        <item
+            android:id="@+id/nav_topping"
+            android:icon="@drawable/ic_topping"
+            android:title="Topping" />
+        <item
+            android:id="@+id/nav_powder"
+            android:icon="@drawable/ic_powder2"
+            android:title="Powder" />
+        <item
+            android:id="@+id/nav_teaLeaf"
+            android:icon="@drawable/ic_powder"
+            android:title="Tea Leaf" />
+        <item
+            android:id="@+id/nav_Fruit"
+            android:icon="@drawable/ic_fruit"
+            android:title="Fruit Product" />
+        <item
+            android:id="@+id/nav_Syrup"
+            android:icon="@drawable/ic_syrup"
+            android:title="Syrup" />
+        <item
+            android:id="@+id/nav_equipment"
+            android:icon="@drawable/ic_equipment"
+            android:title="Equipment" />
+        <item
+            android:id="@+id/nav_container"
+            android:icon="@drawable/ic_container"
+            android:title="Container" />
+
+        </menu>
+
+    </item>
+</menu>

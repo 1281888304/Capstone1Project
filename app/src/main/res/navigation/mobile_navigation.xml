@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.logindatabase.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.logindatabase.ui.accountManagment.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.logindatabase.ui.shoppingCart.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_placeOrder"
+        android:name="com.example.logindatabase.ui.placeOrder.PlaceOrderFragment"
+        android:label="@string/menu_placeOrder"
+        tools:layout="@layout/place_order_fragment" />
+
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.example.logindatabase.ui.history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/history_fragment" />
+    <fragment
+        android:id="@+id/nav_teaLeaf"
+        android:name="com.example.logindatabase.ui.teaLeaf.TeaLeafFragment"
+        android:label="Tea Leaf"
+        tools:layout="@layout/tea_leaf_fragment" />
+
+    <fragment
+        android:id="@+id/nav_topping"
+        android:name="com.example.logindatabase.ui.topping.ToppingFragment"
+        android:label="Topping"
+        tools:layout="@layout/topping_fragment" />
+
+    <fragment
+        android:id="@+id/nav_powder"
+        android:name="com.example.logindatabase.ui.powder.PowderFragment"
+        android:label="Powder"
+        tools:layout="@layout/powder_fragment" />
+
+    <fragment
+        android:id="@+id/nav_equipment"
+        android:name="com.example.logindatabase.ui.equipment.EquipmentFragment"
+        android:label="Equipment"
+        tools:layout="@layout/equipment_fragment" />
+
+    <fragment
+        android:id="@+id/nav_container"
+        android:name="com.example.logindatabase.ui.container.ContainerFragment"
+        android:label="Container"
+        tools:layout="@layout/container_fragment" />
+
+    <fragment
+        android:id="@+id/nav_Syrup"
+        android:name="com.example.logindatabase.ui.syrup.SyrupFragment"
+        android:label="Syrup"
+        tools:layout="@layout/syrup_fragment" />
+
+    <fragment
+        android:id="@+id/nav_Fruit"
+        android:name="com.example.logindatabase.ui.fruit.FruitFragment"
+        android:label="Fruit"
+        tools:layout="@layout/fruit_fragment" />
+</navigation>

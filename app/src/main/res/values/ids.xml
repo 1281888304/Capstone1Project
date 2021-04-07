@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nav_container" type="id" />
+    <item name="nav_equipment" type="id" />
+    <item name="nav_Syrup" type="id" />
+    <item name="nav_Fruit" type="id" />
+    <item name="nav_teaLeaf" type="id" />
+</resources>
