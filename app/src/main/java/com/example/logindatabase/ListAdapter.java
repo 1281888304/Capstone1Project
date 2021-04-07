@@ -91,7 +91,6 @@ public class ListAdapter extends BaseAdapter {
             }
         });
 
-
         return row;
     }
 

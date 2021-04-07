@@ -3,7 +3,9 @@ package com.example.logindatabase;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,9 +32,14 @@ public class Shop extends AppCompatActivity {
     ArrayList<Product> productOrders = new ArrayList<>();
     ArrayList<String> lOrderItems = new ArrayList<>();
 
+    private static final String TAG = "MainActivity";
 
+ // test branch
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Log.d(TAG, "onCreate: in");
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -83,15 +90,79 @@ public class Shop extends AppCompatActivity {
             @Override
             public void onClick(View view){
 
-
-
                 openActivity7();
 
             }
 
-
         });
+
+        Log.d(TAG, "onCreate: out");
     }
+
+    @Override
+    protected void onStart() {
+        Log.d(TAG, "onStart: in");
+        super.onStart();
+        Log.d(TAG, "onStart: out");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+        Log.d(TAG, "onRestoreInstanceState: in");
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d(TAG, "onRestoreInstanceState: out");
+    }
+
+
+    @Override
+    protected void onResume() {
+        Log.d(TAG, "onResume: in");
+        super.onResume();
+        Log.d(TAG, "onResume: out");
+    }
+
+    @Override
+    protected void onPause() {
+        Log.d(TAG, "onPause: in");
+        super.onPause();
+        Log.d(TAG, "onPause: out");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState){
+        Log.d(TAG, "onSaveInstanceState: in");
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState: out");
+    }
+
+    @Override
+    protected void onStop() {
+        Log.d(TAG, "onStop: in");
+        super.onStop();
+        Log.d(TAG, "onStop: out");
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d(TAG, "onDestroy: in");
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: out");
+    }
+
+
+    @Override
+    protected void onRestart() {
+        Log.d(TAG, "onRestart: in");
+        super.onRestart();
+        Log.d(TAG, "onRestart: out");
+    }
+
+    @Override
+    public int checkUriPermission(Uri uri, int pid, int uid, int modeFlags) {
+        return super.checkUriPermission(uri, pid, uid, modeFlags);
+    }
+
+
     public void openActivity4(){
         Intent clickLeafIntent = new Intent(Shop.this, ActivityLeaf.class);
         startActivity(clickLeafIntent);

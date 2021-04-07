@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Shop">
 
     <ImageView
@@ -78,6 +79,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         android:text="Tea"
+        android:textColor="@color/cardview_dark_background"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toTopOf="@+id/imageButton4"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,6 +91,7 @@
         android:layout_width="139dp"
         android:layout_height="18dp"
         android:text="Syrup"
+        android:textColor="@color/cardview_dark_background"
         app:layout_constraintBottom_toTopOf="@+id/imageButton5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
@@ -101,6 +104,7 @@
         android:layout_width="138dp"
         android:layout_height="19dp"
         android:text="Container"
+        android:textColor="@color/cardview_dark_background"
         app:layout_constraintBottom_toTopOf="@+id/imageButton6"
         app:layout_constraintEnd_toStartOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +118,7 @@
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:text="Equipment"
+        android:textColor="@color/cardview_dark_background"
         app:layout_constraintBottom_toTopOf="@+id/imageButton7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton5"
