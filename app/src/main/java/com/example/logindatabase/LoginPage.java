@@ -111,7 +111,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         }
 
         if (email.equals(adminUsername)) {
-            startActivity(new Intent(LoginPage.this, AdminPage.class));
+
         } else {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override

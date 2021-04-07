@@ -16,9 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginDatabase">
-        <activity android:name=".TestBranch"></activity>
-        <activity android:name=".ShowOrders" />
-        <activity android:name=".ShowProductString" />
         <activity android:name=".AddProduct" />
         <activity android:name=".Review" />
         <activity android:name=".ActivityEquip" />
@@ -43,10 +40,8 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".FirstPage" />
-        <activity android:name=".MainActivity2" />
         <activity android:name=".Shop" />
         <activity android:name=".LoginPage" />
-        <activity android:name=".AdminPage" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".RegisterUser" />
