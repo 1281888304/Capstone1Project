@@ -3,7 +3,6 @@ package com.example.logindatabase;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -19,15 +18,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener{
 
     private TextView banner;
     private Button registerUser;
-    private EditText editTextFullName, editTextAge,
-            editTextEmail,editTextPassword;
+    private EditText editTextFullName, editTextPhone,
+            editTextEmail,editTextPassword,editTextAddress;
 
 
 
@@ -53,9 +51,10 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         registerUser.setOnClickListener(this);
 
         editTextFullName=(EditText) findViewById(R.id.fullName);
-        editTextAge=(EditText) findViewById(R.id.age);
+        editTextPhone=(EditText) findViewById(R.id.phone);
         editTextEmail=(EditText) findViewById(R.id.email);
         editTextPassword=(EditText) findViewById(R.id.password);
+        editTextAddress=(EditText) findViewById(R.id.address);
 
     }
 
@@ -77,17 +76,18 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         String email=editTextEmail.getText().toString().trim();
         String password =editTextPassword.getText().toString().trim();
         String fullName=editTextFullName.getText().toString().trim();
-        String age = editTextAge.getText().toString().trim();
+        String phoneNumber = editTextPhone.getText().toString().trim();
+        String address=editTextAddress.getText().toString().trim();
 
         if(fullName.isEmpty()){
-            editTextFullName.setError("Please enter fullname");
+            editTextFullName.setError("Please enter full name here");
             editTextFullName.requestFocus();
             return;
         }
 
-        if(age.isEmpty()){
-            editTextAge.setError("How old are you");
-            editTextAge.requestFocus();
+        if(phoneNumber.isEmpty()){
+            editTextPhone.setError("what's your phone number");
+            editTextPhone.requestFocus();
             return;
         }
 
@@ -114,13 +114,18 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
             editTextPassword.requestFocus();
             return;
         }
+        if(address.isEmpty()){
+            editTextAddress.setError("Please tell us your address");
+            editTextAddress.requestFocus();
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            User user=new User(fullName,age,email);
+                            User user=new User(fullName,phoneNumber,email,address);
 
                             //send it to database
 //                            FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -139,7 +144,8 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                                     }
                                 }
                             });
-                        }Toast.makeText(RegisterUser.this,"User has not be added error 2",Toast.LENGTH_LONG).show();
+                        }
+//                        Toast.makeText(RegisterUser.this,"User has not be added error 2",Toast.LENGTH_LONG).show();
                     }
                 });
 

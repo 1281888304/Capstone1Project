@@ -59,7 +59,7 @@ public class ProfileActivity extends AppCompatActivity {
         purchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this,Shop.class));
+
             }
         });
 
@@ -78,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
         controlShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this,AddProduct.class));
+
             }
         });
         //link to control simple
@@ -97,7 +97,7 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView greetingTextView =(TextView) findViewById(R.id.greeting);
         final TextView fullNameTextView =(TextView) findViewById(R.id.fullName);
         final TextView emailTextView =(TextView) findViewById(R.id.emailAddress);
-        final TextView ageTextView =(TextView) findViewById(R.id.age);
+        final TextView ageTextView =(TextView) findViewById(R.id.phone);
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -107,7 +107,7 @@ public class ProfileActivity extends AppCompatActivity {
                 if(userProfile !=null){
                     String fullName=userProfile.fullName;
                     String email=userProfile.email;
-                    String age=userProfile.age;
+                    String age=userProfile.phoneNumber;
 
                     greetingTextView.setText("Welcome "+fullName+"! ");
                     fullNameTextView.setText(fullName);
