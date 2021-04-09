@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.topping.ToppingFragment">
+    android:layout_height="wrap_content"
+    tools:context=".ui.topping.ToppingFragment"
+    >
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="topping" />
+        android:id="@+id/inputSearchTopping"
+        android:hint="Search here"
+        android:background="@drawable/input_search"
+        android:paddingLeft="20dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:drawableRight="@drawable/ic_search"
+        android:paddingRight="10dp"
+        android:layout_height="wrap_content"/>
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recylerView"
+        android:layout_width="361dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputSearchTopping"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:layout_marginBottom="7dp" />
+</RelativeLayout>

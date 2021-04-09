@@ -16,10 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginDatabase">
+        <activity android:name=".ui.topping.ToppingViewActivity"></activity>
         <activity
             android:name=".NavgationDrawer"
             android:label="@string/title_activity_navgation_drawer"
-            android:theme="@style/Theme.LoginDatabase.NoActionBar"></activity>
+            android:theme="@style/Theme.LoginDatabase.NoActionBar" />
         <activity android:name=".Review" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
