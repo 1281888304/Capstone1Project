@@ -3,8 +3,11 @@ package com.example.logindatabase.ui.topping;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -55,6 +58,8 @@ public class ToppingViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Topping Detail");
+        setTitleColor(Color.rgb(200,0,0));
         setContentView(R.layout.activity_topping_view);
 
         toppingImageClick=findViewById(R.id.toppingImageClick);
