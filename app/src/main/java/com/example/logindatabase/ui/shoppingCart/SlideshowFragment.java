@@ -49,6 +49,9 @@ public class SlideshowFragment extends Fragment {
     private DatabaseReference reference;
     private String userID;
 
+
+
+
      private String userName="";
 
 
@@ -75,6 +78,7 @@ public class SlideshowFragment extends Fragment {
         //get user detail
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
+
         userID=user.getUid();
 
 
