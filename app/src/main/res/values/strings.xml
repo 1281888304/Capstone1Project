@@ -13,4 +13,5 @@
     <string name="menu_gallery">Account Mangerment</string>
     <string name="menu_slideshow">ShoppingCart</string>
     <string name="menu_placeOrder">Place Order</string>
+    <string name="title_activity_direct">Map</string>
 </resources>

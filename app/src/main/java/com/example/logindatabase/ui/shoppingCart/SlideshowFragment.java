@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -112,7 +113,8 @@ public class SlideshowFragment extends Fragment {
             }
         });
 
-        return view;
+        //right now the CartProduct list is full with product
+        return view;// end of this activity
     }
 
 
@@ -146,7 +148,9 @@ public class SlideshowFragment extends Fragment {
                     sum=sum+(priceValue*orderNum);
 
                 }
-                totalPrice.setText("Total Price is $"+String.valueOf(String.valueOf(sum)));
+                DecimalFormat f = new DecimalFormat("##.00");
+
+                totalPrice.setText("Total Price is $"+String.valueOf(String.valueOf(f.format(sum))));
 
 
             }

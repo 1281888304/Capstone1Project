@@ -37,7 +37,7 @@ public class Review extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Review.this,ProfileActivity.class));
+                startActivity(new Intent(Review.this,NavgationDrawer.class));
             }
         });
 

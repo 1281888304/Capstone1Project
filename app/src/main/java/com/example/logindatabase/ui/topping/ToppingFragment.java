@@ -32,6 +32,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.logindatabase.ui.powder.PowderFragment;
+import com.example.logindatabase.ui.powder.Powders;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,6 +51,8 @@ public class ToppingFragment extends Fragment {
     private DatabaseReference myRef;
     private RecyclerView recyclerView;
     private EditText searchTopping;
+    private ArrayList<Powders> powderList;
+
     //adapter
     private ToppingRecylerAdapter toppingRecylerAdapter;
 
@@ -107,12 +112,14 @@ public class ToppingFragment extends Fragment {
     //helper function
     private void filter(String text) {
 
+
         ArrayList<Toppings> filterList=new ArrayList<>();
         for(Toppings item : toppingsList){
             if(item.getToppingName().toLowerCase().contains(text.toLowerCase())){
                 filterList.add(item);
             }
         }
+
         toppingRecylerAdapter.filteredList(filterList);
     }
 
