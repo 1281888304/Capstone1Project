@@ -27,8 +27,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Map;
 
 public class SlideshowFragment extends Fragment {
@@ -51,13 +54,13 @@ public class SlideshowFragment extends Fragment {
     private String userID;
 
     private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference orderReference;
+    private DatabaseReference orderReference,sendRef,removeRef;
 
 
 
 
      private String userName="";
-
+     private String userAddress="";
 
 
 
@@ -93,7 +96,9 @@ public class SlideshowFragment extends Fragment {
 
                 if(userProfile !=null){
                     String fullName=userProfile.fullName;
+                    String fullAddress=userProfile.address;
                     userName=fullName;
+                    userAddress=fullAddress;
                     clearAll();
 
                     getData();
@@ -121,14 +126,56 @@ public class SlideshowFragment extends Fragment {
         contract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Long tsLong = System.currentTimeMillis()/1000;
+                String time = tsLong.toString(); //time stamp
 
-                orderReference = firebaseDatabase.getInstance().getReference().child("Cart").child(userName);
+                orderReference = FirebaseDatabase.getInstance().getReference().child("Cart").child(userName);
+                sendRef=FirebaseDatabase.getInstance().getReference().child("orders").child(userName+"/"+time);
+                //add to orders database; deleted current cart by username as the key
+                //get the time stamp first
+                Calendar calendar=Calendar.getInstance();
+                String currentDate= DateFormat.getDateInstance().format(calendar.getTime()); // date
 
 
+                OrderProduct orderProduct=new OrderProduct();
+                orderReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot ds : snapshot.getChildren()){
+                            //ds is cart
+                            CartProduct cartProduct=ds.getValue(CartProduct.class);
 
+                            orderProduct.setProductName(cartProduct.getCartProductName());
+                            orderProduct.setProductTitle(cartProduct.getCartProductTitle());
+                            orderProduct.setProductNum(cartProduct.getCartProductNum());
+                            orderProduct.setProductPrice(cartProduct.getCartProductPrice());
+                            orderProduct.setTimeStamp(time);
+                            orderProduct.setName(userName);
+                            orderProduct.setAddress(userAddress);
+                            sendRef.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    sendRef.child(orderProduct.getProductTitle())
+                                            .setValue(orderProduct);
+                                }
 
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
+                                }
+                            });
+                        }
 
+                        //remove from shopping cart
+                        removeRef=FirebaseDatabase.getInstance().getReference().child("Cart");
+                        removeRef.child(userName).removeValue();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
 
@@ -141,6 +188,7 @@ public class SlideshowFragment extends Fragment {
     private void countPrice() {
 
         priceRef=FirebaseDatabase.getInstance().getReference().child("Cart").child(userName);
+
         priceRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
