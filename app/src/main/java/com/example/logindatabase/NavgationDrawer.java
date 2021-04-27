@@ -1,5 +1,6 @@
 package com.example.logindatabase;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -26,14 +27,16 @@ public class NavgationDrawer extends AppCompatActivity {
         setContentView(R.layout.activity_navgation_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.mailConnect);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(NavgationDrawer.this,Review.class));
             }
         });
+
+
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -41,7 +44,7 @@ public class NavgationDrawer extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_placeOrder,R.id.nav_history,
                     R.id.nav_teaLeaf,R.id.nav_topping,R.id.nav_powder,R.id.nav_equipment,
-                R.id.nav_container,R.id.nav_Syrup,R.id.nav_Fruit)
+                R.id.nav_container,R.id.nav_Syrup,R.id.nav_Fruit,R.id.nav_product)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

@@ -121,7 +121,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                         if (user.isEmailVerified()) {
                             //do something
                             //redirect to user profile
-                            startActivity(new Intent(LoginPage.this, ProfileActivity.class));
+                            startActivity(new Intent(LoginPage.this, NavgationDrawer.class));
                         } else {
                             //now need to verified user
                             user.sendEmailVerification();
