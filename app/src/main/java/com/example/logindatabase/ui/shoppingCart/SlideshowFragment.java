@@ -130,7 +130,7 @@ public class SlideshowFragment extends Fragment {
                 String time = tsLong.toString(); //time stamp
 
                 orderReference = FirebaseDatabase.getInstance().getReference().child("Cart").child(userName);
-                sendRef=FirebaseDatabase.getInstance().getReference().child("orders").child(userName+"/"+time);
+                sendRef=FirebaseDatabase.getInstance().getReference().child("orders").child(userName);
                 //add to orders database; deleted current cart by username as the key
                 //get the time stamp first
                 Calendar calendar=Calendar.getInstance();
@@ -157,6 +157,10 @@ public class SlideshowFragment extends Fragment {
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     sendRef.child(orderProduct.getProductTitle())
                                             .setValue(orderProduct);
+
+                                    //remove from shopping cart
+                                    removeRef=FirebaseDatabase.getInstance().getReference().child("Cart");
+                                    removeRef.child(userName).removeValue();
                                 }
 
                                 @Override
@@ -166,9 +170,7 @@ public class SlideshowFragment extends Fragment {
                             });
                         }
 
-                        //remove from shopping cart
-                        removeRef=FirebaseDatabase.getInstance().getReference().child("Cart");
-                        removeRef.child(userName).removeValue();
+
                     }
 
                     @Override
