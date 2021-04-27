@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity  {
 
         FirebaseUser mFirebaseUser=mFirebaseAuth.getCurrentUser();// to get user's username 
         if(mFirebaseUser!=null){ //if someone login, then go to profile
-            startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+            startActivity(new Intent(MainActivity.this,NavgationDrawer.class));
         }else{ //no user login then go to the first Page
             startActivity(new Intent(MainActivity.this,FirstPage.class));
             finish();

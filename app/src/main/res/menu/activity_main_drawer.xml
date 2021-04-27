@@ -28,6 +28,10 @@
 
     <item android:title="Products">
         <menu>
+            <item
+                android:id="@+id/nav_product"
+                android:icon="@drawable/ic_product_list"
+                android:title="All Products" />
         <item
             android:id="@+id/nav_topping"
             android:icon="@drawable/ic_topping"
