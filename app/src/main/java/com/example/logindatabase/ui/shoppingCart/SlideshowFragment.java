@@ -50,6 +50,9 @@ public class SlideshowFragment extends Fragment {
     private DatabaseReference reference;
     private String userID;
 
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference orderReference;
+
 
 
 
@@ -96,6 +99,8 @@ public class SlideshowFragment extends Fragment {
                     getData();
 
                     countPrice();
+
+                    gotoPlaceOrder();
                 }
             }
 
@@ -106,9 +111,19 @@ public class SlideshowFragment extends Fragment {
         });
 
 
+
+        //right now the CartProduct list is full with product
+        return view;// end of this activity
+    }
+
+    private void gotoPlaceOrder() {
+        //This will lead to place order page after a user clicked the button and
         contract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                orderReference = firebaseDatabase.getInstance().getReference().child("Cart").child(userName);
+
 
 
 
@@ -120,10 +135,7 @@ public class SlideshowFragment extends Fragment {
             }
         });
 
-        //right now the CartProduct list is full with product
-        return view;// end of this activity
     }
-
 
 
     private void countPrice() {

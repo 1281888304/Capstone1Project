@@ -13,8 +13,7 @@ public class SlideshowViewModel extends ViewModel {
     private ArrayList<CartProduct> ordersInCart;
 
     public SlideshowViewModel() {
-    //    mText = new MutableLiveData<>();
-     //   mText.setValue("This is slideshow fragment");
+    cartProduct = new MutableLiveData<>();
     }
 
 //    public LiveData<String> getText() {
