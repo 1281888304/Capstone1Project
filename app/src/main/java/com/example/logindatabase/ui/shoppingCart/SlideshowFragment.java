@@ -158,6 +158,10 @@ public class SlideshowFragment extends Fragment {
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     sendRef.child(time).child(orderProduct.getProductTitle())
                                             .setValue(orderProduct);
+
+                                    //remove from shopping cart
+                                    removeRef=FirebaseDatabase.getInstance().getReference().child("Cart");
+                                    removeRef.child(userName).removeValue();
                                 }
 
                                 @Override
@@ -167,9 +171,7 @@ public class SlideshowFragment extends Fragment {
                             });
                         }
 
-                        //remove from shopping cart
-                        removeRef=FirebaseDatabase.getInstance().getReference().child("Cart");
-                        removeRef.child(userName).removeValue();
+
                     }
 
                     @Override
