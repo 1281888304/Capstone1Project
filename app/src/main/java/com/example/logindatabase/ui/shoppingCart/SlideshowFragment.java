@@ -128,34 +128,35 @@ public class SlideshowFragment extends Fragment {
             public void onClick(View v) {
                 Long tsLong = System.currentTimeMillis()/1000;
                 String time = tsLong.toString(); //time stamp
+                String nameKey=userName+time;
 
                 orderReference = FirebaseDatabase.getInstance().getReference().child("Cart").child(userName);
-                sendRef=FirebaseDatabase.getInstance().getReference().child("orders").child(userName+"/"+time);
+                sendRef=FirebaseDatabase.getInstance().getReference().child("orders").child(userName);
                 //add to orders database; deleted current cart by username as the key
                 //get the time stamp first
                 Calendar calendar=Calendar.getInstance();
                 String currentDate= DateFormat.getDateInstance().format(calendar.getTime()); // date
-
-
-                OrderProduct orderProduct=new OrderProduct();
-                orderReference.addValueEventListener(new ValueEventListener() {
+                
+                orderReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for(DataSnapshot ds : snapshot.getChildren()){
                             //ds is cart
                             CartProduct cartProduct=ds.getValue(CartProduct.class);
+//                            Map<String,Object> map=(Map<String, Object>) ds.getValue();
+                            OrderProduct orderProduct=new OrderProduct();
 
                             orderProduct.setProductName(cartProduct.getCartProductName());
                             orderProduct.setProductTitle(cartProduct.getCartProductTitle());
                             orderProduct.setProductNum(cartProduct.getCartProductNum());
                             orderProduct.setProductPrice(cartProduct.getCartProductPrice());
-                            orderProduct.setTimeStamp(time);
+                            orderProduct.setTimeStamp(currentDate);
                             orderProduct.setName(userName);
                             orderProduct.setAddress(userAddress);
-                            sendRef.addValueEventListener(new ValueEventListener() {
+                            sendRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    sendRef.child(orderProduct.getProductTitle())
+                                    sendRef.child(time).child(orderProduct.getProductTitle())
                                             .setValue(orderProduct);
                                 }
 
@@ -217,7 +218,12 @@ public class SlideshowFragment extends Fragment {
                 }
                 DecimalFormat f = new DecimalFormat("##.00");
 
-                totalPrice.setText("Total Price is $"+String.valueOf(String.valueOf(f.format(sum))));
+                if(sum!=0){
+                    totalPrice.setText("Total Price is $"+String.valueOf(String.valueOf(f.format(sum))));
+                }
+                else{
+                    totalPrice.setText("Please add something to start");
+                }
 
 
             }

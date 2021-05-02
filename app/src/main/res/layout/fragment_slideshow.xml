@@ -37,7 +37,7 @@
         android:layout_height="48dp"
 
         android:background="@drawable/btn"
-        android:text="Enter Contract Information"
+        android:text="Place Order"
 
         app:backgroundTint="#00BCD4"
         app:layout_constraintBottom_toBottomOf="parent"
