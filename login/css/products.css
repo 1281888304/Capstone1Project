@@ -1,0 +1,19 @@
+.img-thumbnail{
+    height: 100px;
+    width: 100px;
+}
+table,
+thead,
+tr,
+tbody,
+th,
+td {
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+}
+.table th{
+    text-align: center;
+}

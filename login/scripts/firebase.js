@@ -36,6 +36,7 @@ let protbody = document.createElement("tbody");
 ref.orderByChild('status').equalTo('Pending').once("value", function(snapshot) {
     let ss = snapshot.val();
     Object.keys(ss).forEach(function (order){
+        console.log(ss);
         let tr = document.createElement("tr");
         let ordernum = document.createElement("th");
         let company = document.createElement("td");
@@ -159,8 +160,9 @@ function delOrder(order){
     if(confirmation){
     var ordernum = order.value;
     ref.child(ordernum-1).remove();
+    console.log(ref.child(ordernum-1));
     }
-    location.reload(true);
+    // location.reload(true);
 }
 //process button function
 function processOrder(order){
