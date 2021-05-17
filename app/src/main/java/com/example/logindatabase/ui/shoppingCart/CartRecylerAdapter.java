@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.logindatabase.R;
 import com.example.logindatabase.ui.powder.PowderViewActivity;
+import com.example.logindatabase.ui.syrup.SyrupViewActivity;
 import com.example.logindatabase.ui.topping.ToppingViewActivity;
 import com.google.firebase.database.DatabaseReference;
 
@@ -65,6 +66,12 @@ public class CartRecylerAdapter extends RecyclerView.Adapter<CartRecylerAdapter.
                 }
                 if(cureentTitle.startsWith("p") || cureentTitle.startsWith("P")){
                     Intent intent=new Intent(v.getContext(), PowderViewActivity.class);
+                    intent.putExtra("productKey",cureentTitle);
+                    intent.putExtra("productNum",numHelper);
+                    v.getContext().startActivities(new Intent[]{intent});
+                }
+                if(cureentTitle.toLowerCase().startsWith("syrup")){
+                    Intent intent=new Intent(v.getContext(), SyrupViewActivity.class);
                     intent.putExtra("productKey",cureentTitle);
                     intent.putExtra("productNum",numHelper);
                     v.getContext().startActivities(new Intent[]{intent});
