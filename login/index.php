@@ -14,7 +14,7 @@ require('checkLogin.php');
     <meta charset="UTF-8">
     <title>Admin Page</title>
     <link rel="icon" type="image" href="images/ethenlogo.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
@@ -58,13 +58,13 @@ require('checkLogin.php');
     <h2>Add Order</h2>
 </div>
 <div class="container">
-    <div class="mb-5 row">
+    <div class="mb-2 row">
         <label for="company" class="col-sm-2 col-form-label">Company</label>
         <div class="col-sm-5">
             <input type="text" class="form-control-sm" id="company">
         </div>
     </div>
-    <div class="mb-5 row">
+    <div class="mb-2 row">
         <label for="item" class="col-sm-2 col-form-label">Item</label>
         <div class="col-sm-5">
             <select class="form-select" id="item">
@@ -77,13 +77,13 @@ require('checkLogin.php');
             </select>
         </div>
     </div>
-    <div class="mb-5 row">
+    <div class="mb-2 row">
         <label for="quantity" class="col-sm-2 col-form-label">Quantity</label>
         <div class="col-sm-5">
             <input type="text" class="form-control-sm" id="quantity">
         </div>
     </div>
-    <div class="mb-5 row">
+    <div class="mb-2 row">
         <label for="address" class="col-sm-2 col-form-label">Address</label>
         <div class="col-sm-5">
             <input type="text" class="form-control-sm" id="address">
