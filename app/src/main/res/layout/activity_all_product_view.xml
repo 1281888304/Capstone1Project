@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent"
+    tools:context=".ui.allProduct.AllProductViewActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
-                android:id="@+id/powderImageClick"
+                android:id="@+id/productImageClick"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"/>
@@ -27,40 +27,40 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/powderTitleClick"
+                android:id="@+id/productTitleCLick"
                 android:layout_margin="10dp"
                 android:textSize="16dp"
-                android:layout_below="@id/powderImageClick"/>
+                android:layout_below="@id/productImageClick"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/powderNameClick"
+                android:id="@+id/productNameClick"
                 android:layout_margin="10dp"
                 android:textSize="16dp"
-                android:layout_below="@id/powderTitleClick"/>
+                android:layout_below="@id/productTitleCLick"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/powderPriceClick"
+                android:id="@+id/productPriceClick"
                 android:layout_margin="10dp"
                 android:textSize="16dp"
-                android:layout_below="@id/powderNameClick"/>
+                android:layout_below="@id/productNameClick"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/powderNumClick"
+                android:id="@+id/productOrderNumClick"
 
                 android:layout_margin="10dp"
                 android:textSize="16dp"
-                android:layout_below="@id/powderPriceClick"/>
+                android:layout_below="@id/productPriceClick"/>
 
             <Button
-                android:id="@+id/powderAdd"
+                android:id="@+id/productShopAddClick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/powderNumClick"
+                android:layout_below="@id/productOrderNumClick"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
 
@@ -68,13 +68,13 @@
                 android:background="@drawable/btn"
                 android:paddingLeft="5dp"
                 android:text="ADD"
-                app:backgroundTint="#E91E63" />
+                app:backgroundTint="#FFEB3B" />
 
             <Button
-                android:id="@+id/powderDelete"
+                android:id="@+id/productShopDeleteClick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/powderAdd"
+                android:layout_below="@id/productShopAddClick"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="5dp"
@@ -89,8 +89,5 @@
 
 
     </androidx.cardview.widget.CardView>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

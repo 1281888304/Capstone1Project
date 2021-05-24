@@ -51,7 +51,7 @@ public class ToppingFragment extends Fragment {
     private DatabaseReference myRef;
     private RecyclerView recyclerView;
     private EditText searchTopping;
-    private ArrayList<Powders> powderList;
+
 
     //adapter
     private ToppingRecylerAdapter toppingRecylerAdapter;

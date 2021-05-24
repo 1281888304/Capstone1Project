@@ -68,7 +68,7 @@
                 android:background="@drawable/btn"
                 android:paddingLeft="5dp"
                 android:text="ADD"
-                app:backgroundTint="#FFEB3B" />
+                app:backgroundTint="#E91E63" />
 
             <Button
                 android:id="@+id/toppingShopDeleteClick"

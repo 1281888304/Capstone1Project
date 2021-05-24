@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -18,69 +16,50 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+
+
             <ImageView
-                android:id="@+id/powderImageClick"
+                android:id="@+id/syrupImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:scaleType="centerCrop"/>
+
+
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/powderTitleClick"
+                android:id="@+id/syrupTitle"
                 android:layout_margin="10dp"
                 android:textSize="16dp"
-                android:layout_below="@id/powderImageClick"/>
+                android:layout_below="@id/syrupImage"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/powderNameClick"
+                android:id="@+id/syrupName"
                 android:layout_margin="10dp"
                 android:textSize="16dp"
-                android:layout_below="@id/powderTitleClick"/>
+                android:layout_below="@id/syrupTitle"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/powderPriceClick"
+                android:id="@+id/syrupPrice"
                 android:layout_margin="10dp"
                 android:textSize="16dp"
-                android:layout_below="@id/powderNameClick"/>
+                android:layout_below="@id/syrupName"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/powderNumClick"
+                android:id="@+id/syrupOrderNum"
 
                 android:layout_margin="10dp"
                 android:textSize="16dp"
-                android:layout_below="@id/powderPriceClick"/>
+                android:layout_below="@id/syrupPrice"/>
 
-            <Button
-                android:id="@+id/powderAdd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/powderNumClick"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
 
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/btn"
-                android:paddingLeft="5dp"
-                android:text="ADD"
-                app:backgroundTint="#E91E63" />
-
-            <Button
-                android:id="@+id/powderDelete"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/powderAdd"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/btn"
-                android:text="Drop"
-                app:backgroundTint="#FF5722" />
 
 
 
@@ -89,8 +68,5 @@
 
 
     </androidx.cardview.widget.CardView>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
