@@ -1,5 +1,6 @@
 package com.example.logindatabase.ui.shoppingCart;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,16 +9,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.logindatabase.R;
 import com.example.logindatabase.User;
+import com.example.logindatabase.ui.history.HistoryFragment;
+import com.example.logindatabase.ui.history.HistoryRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +29,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -56,25 +57,28 @@ public class SlideshowFragment extends Fragment {
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference orderReference,sendRef,removeRef;
 
-
-
-
      private String userName="";
      private String userAddress="";
 
-
+     //fields for history of orders
+     private ArrayList<OrderProduct> orderList;
+    private FirebaseDatabase db = FirebaseDatabase.getInstance();
+    private DatabaseReference ordersRef = db.getReference().child("orders").child("CharlieBrown");
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         slideshowViewModel =
                 new ViewModelProvider(this).get(SlideshowViewModel.class);
-        View view = inflater.inflate(R.layout.fragment_slideshow, container, false);
+       View  view = inflater.inflate(R.layout.fragment_slideshow, container, false);
 
-        //add buttom here
-        cartRecyclerView=view.findViewById(R.id.cartRecylerView);
+
+       cartRecyclerView=view.findViewById(R.id.cartRecylerView);
         totalPrice=view.findViewById(R.id.cartTotalPrice);
+
+       //add button here
         contract=view.findViewById(R.id.cart_BtnContract);
+
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
         cartRecyclerView.setLayoutManager(layoutManager);
         cartRecyclerView.setHasFixedSize(true);
@@ -106,6 +110,49 @@ public class SlideshowFragment extends Fragment {
                     countPrice();
 
                     gotoPlaceOrder();
+
+
+//                                    //Action that searching under "orders" Node and displaying orders in HistoryFragment
+//                        /*
+//                        orderList = new ArrayList<>();
+//                        historyAdapter = new HistoryRecyclerAdapter(context, orderList);
+//
+//                        historyRecyclerView.setAdapter(historyAdapter);
+//                        ordersRef.addValueEventListener(new ValueEventListener() {
+//                            @Override
+//                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+//
+//                                    OrderProduct op = dataSnapshot.getValue(OrderProduct.class);
+//                                    orderList.add(op);
+//
+//                                }
+//                                historyAdapter.notifyDataSetChanged();
+//
+//                            }
+//
+//                            @Override
+//                            public void onCancelled(@NonNull DatabaseError error) {
+//
+//                            }
+//                        });
+//
+//                         */
+//
+//                                }
+//
+//                                @Override
+//                                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                                }
+//                            });
+//
+//
+//                        }
+//                    });
+
+
                 }
             }
 
@@ -114,8 +161,6 @@ public class SlideshowFragment extends Fragment {
 //                Toast.makeText(getClass().this,"Something wrong on our app",Toast.LENGTH_LONG).show();
             }
         });
-
-
 
         //right now the CartProduct list is full with product
         return view;// end of this activity
@@ -126,9 +171,16 @@ public class SlideshowFragment extends Fragment {
         contract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Long tsLong = System.currentTimeMillis()/1000;
+
+
+//                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+//                transaction.replace(R.id.fragment_container,new HistoryFragment());
+//                transaction.commit();
+
+  /*              Long tsLong = System.currentTimeMillis()/1000;
                 String time = tsLong.toString(); //time stamp
                 String nameKey=userName+time;
+
 
                 orderReference = FirebaseDatabase.getInstance().getReference().child("Cart").child(userName);
                 sendRef=FirebaseDatabase.getInstance().getReference().child("orders").child(userName);
@@ -136,7 +188,7 @@ public class SlideshowFragment extends Fragment {
                 //get the time stamp first
                 Calendar calendar=Calendar.getInstance();
                 String currentDate= DateFormat.getDateInstance().format(calendar.getTime()); // date
-                
+
                 orderReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -171,14 +223,43 @@ public class SlideshowFragment extends Fragment {
                             });
                         }
 
+                        //Action that searching under "orders" Node and displaying orders in HistoryFragment
+                        /*
+                        orderList = new ArrayList<>();
+                        historyAdapter = new HistoryRecyclerAdapter(context, orderList);
 
-                    }
+                        historyRecyclerView.setAdapter(historyAdapter);
+                        ordersRef.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
 
-                    }
-                });
+                                    OrderProduct op = dataSnapshot.getValue(OrderProduct.class);
+                                    orderList.add(op);
+
+                                }
+                                historyAdapter.notifyDataSetChanged();
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+                         */
+
+                   // }
+
+
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+               // });
+
 
 
 

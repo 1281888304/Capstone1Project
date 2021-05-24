@@ -10,4 +10,11 @@
         android:layout_height="match_parent"
         android:text="Place Order" />
 
+    <Button
+        android:id="@+id/btnPlaceOrder"
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+
 </FrameLayout>
